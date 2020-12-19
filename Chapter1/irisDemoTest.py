@@ -39,7 +39,7 @@ models.append(('SVM', SVC(gamma='auto')))
 results = []
 names = []
 for name, model in models:
-    kfold = model_selection.KFold(n_splits=10, random_state=seed)
+    kfold = model_selection.KFold(n_splits=10, random_state=None)
     cv_results = model_selection.cross_val_score(model, X_train, Y_train, cv=kfold, scoring=scoring)
     results.append(cv_results)
     names.append(name)
