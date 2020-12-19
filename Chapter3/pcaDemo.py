@@ -13,14 +13,14 @@ df.dropna(how="all", inplace=True) # Drops empty line at EOF
 # Show the first 5 records
 print(df.head())
 f, ax = plt.subplots(1, 4, figsize=(10,5))
-vis1 = sns.distplot(df['sepal_length'],bins=10, ax= ax[0])
-vis2 = sns.distplot(df['sepal_width'],bins=10, ax=ax[1])
-vis3 = sns.distplot(df['petal_length'],bins=10, ax= ax[2])
-vis4 = sns.distplot(df['petal_width'],bins=10, ax=ax[3])
+vis1 = sns.histplot(df['sepal_length'],bins=10, ax= ax[0], kde=True)
+vis2 = sns.histplot(df['sepal_width'],bins=10, ax=ax[1], kde=True)
+vis3 = sns.histplot(df['petal_length'],bins=10, ax= ax[2], kde=True)
+vis4 = sns.histplot(df['petal_width'],bins=10, ax=ax[3], kde=True)
 plt.show()
 # split data table into data X and class labels y
-X = df.ix[:,0:4].values
-y = df.ix[:,4].values
+X = df.iloc[:,0:4].values
+y = df.iloc[:,4].values
 # Standardize the data
 X_std = StandardScaler().fit_transform(X)
 # Compute the covariance matrix
@@ -62,7 +62,7 @@ ax = fig.add_subplot(1,1,1)
 ax.set_xlabel('Principal Component 1', fontsize=15)
 ax.set_ylabel('Principal Component 2', fontsize=15)
 ax.set_title('2 Component PCA', fontsize=20)
-targets = ['setosa', 'versicolor', 'virginica']
+targets = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
 colors = ['r', 'g', 'b']
 for target, color in zip(targets, colors):
     indicesToKeep = finalDf['class'] == target
