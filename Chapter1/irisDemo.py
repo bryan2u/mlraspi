@@ -1,8 +1,8 @@
 # Usage
 # python irisDemo.py
 # Load libraries
-import pandas
-from pandas.plotting import scatter_matrix
+import pandas from pandas.plotting 
+import scatter_matrix
 import matplotlib.pyplot as plt
 # Load dataset
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
