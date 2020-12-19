@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.tree import export_graphviz
-from sklearn.externals.six import StringIO
+from six import StringIO
 from sklearn import tree
 import pydotplus
 import collections
