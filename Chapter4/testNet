@@ -1,0 +1,13 @@
+import numpy as np
+def testNet(self, input):
+    # Convert input data vector into an array
+    input = np.array(input, ndmin=2).T
+    # Multiply input array by wtgih matrix
+    hInput = np.dot(self.wtgih, input)
+    # Apply activation function
+    hOutput = 1 / (1 + np.exp(-hInput))
+    # Multiply hidden layer output by wtgho matrix
+    oInput = np.dot(self.wtgho, hOutput)
+    # Apply activation function
+    oOutput = 1 / (1 + np.exp(-oInput))
+    return oOutput
