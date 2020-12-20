@@ -51,3 +51,6 @@ class ANN:
         self.wtgho += self.lr*np.dot((self.eOutput*self.oOutputT*(1 - self.oOutputT)), self.hOutputT.T)
         # Update weight matrix wtgih
         self.wtgih += self.lr*np.dot((self.hError*self.hOutputT*(1 - self.hOutputT)), self.inputT.T)
+    def getMatrices(self):
+        matrixList = list([self.wtgih, self.wtgho])
+        return matrixList
