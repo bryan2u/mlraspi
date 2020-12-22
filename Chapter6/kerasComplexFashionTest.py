@@ -18,9 +18,9 @@ np.random.seed(seed)
 (train_images, train_labels),(test_images, test_labels) = fashion_mnist.load_data()
 # Flatten all of the 28 x 28 images into 784 element numpy input
 # data vectors.
-pixelNum = train_images.shape[1] ∗ train_images.shape[2]
-train_images = train_images.reshape(train_images.shape[0],28,28,1).astype('float32')
-test_images = test_images.reshape(test_images.shape[0],28,28,1).astype('float32')
+pixelNum = train_images.shape[1] * train_images.shape[2]
+train_images = train_images.reshape(train_images.shape[0], 28, 28, 1).astype('float32')
+test_images = test_images.reshape(test_images.shape[0], 28, 28, 1).astype('float32')
 # Normalize inputs from 0-255 to 0-1
 train_images = train_images / 255.0
 test_images = test_images / 255.0
