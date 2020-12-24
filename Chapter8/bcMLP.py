@@ -29,21 +29,21 @@ X_test = sc.transform(X_test)
 # Initialise the ANN
 classifier = Sequential()
 # Add the input layer and the first hidden layer
-classifier.add(Dense(output_dim=16, init="uniform", activation="relu", input_dim=8))
+classifier.add(Dense(units=16, kernel_initializer='uniform', activation='relu', input_dim=8))
 # Add dropout to prevent overfitting
-classifier.add(Dropout(p=0.1))
+classifier.add(Dropout(0.1))
 # Add the second hidden layer
-classifier.add(Dense(output_dim=16, init="uniform", activation="relu"))
+classifier.add(Dense(units=16, kernel_initializer='uniform', activation='relu'))
 # Add dropout to prevent overfitting
-classifier.add(Dropout(p=0.1))
+classifier.add(Dropout(0.1))
 # Add the output layer
-classifier.add(Dense(output_dim=1, init="uniform", activation="sigmoid"))
+classifier.add(Dense(units=1, kernel_initializer='uniform', activation='sigmoid'))
 # Compile the ANN
-classifier.compile(optimizer='adam', loss="binary_crossentropy", metrics=['accuracy'])
+classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 # Fit the ANN to the Training set
 # The batch size and number of epochs have been set using trial
 # and error.
-classifier.fit(X_train, y_train, batch_size=100, nb_epoch=150)
+classifier.fit(X_train, y_train, batch_size=100, epochs=150)
 # Predict the Test set results
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5) # Converts continuous to binary
@@ -76,7 +76,7 @@ fpr, tpr, thresholds = roc_curve(y_test, probas[:,0], pos_label=0)
 roc_auc = auc(fpr, tpr)
 # Plot the AUROC curve
 plt.figure(dpi=150)
-plt.plot(fpr, tpr, lw=1, color="green", label=f'AUC = {roc_auc:.3f}')
+plt.plot(fpr, tpr, lw=1, color='green', label=f'AUC = {roc_auc:.3f}')
 plt.title('ROC Curve for RF classifier')
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate (Recall)')
